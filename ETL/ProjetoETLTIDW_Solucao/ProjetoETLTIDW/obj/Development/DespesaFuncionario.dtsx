@@ -1,0 +1,1487 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2018 5:32:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SCARVALHO"
+  DTS:CreatorName="SCARVALHO\Tassia"
+  DTS:DTSID="{7147CEDE-0855-4E20-96F3-C80B032360C2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.106"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="DespesaFuncionario"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{3AA70078-5B66-4570-BB5A-C590103C2994}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Dep Não Encontrados Funcionario]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CC08A9B0-E68E-494A-AC67-7DE0AC79FEAF}"
+      DTS:ObjectName="Dep Não Encontrados Funcionario">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\DepNaoEncontradosFuncionario.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{425D6840-1AAB-4575-8B12-5269D2433256}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="11"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{4B7AAF6C-FEB3-478A-8812-DAF3FDE69261}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDDep"
+              DTS:DTSID="{23B39EED-13E7-4AB4-917F-39CC40136600}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Departamentos Não Encontrados Funcionario]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{DD909633-2B86-429A-90ED-4112AE5DD91C}"
+      DTS:ObjectName="Departamentos Não Encontrados Funcionario">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\DepartamentoNaoEncontradosFuncionario.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{C3860B8A-C84D-4327-8E5A-AC13A08121F1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{C49D6F58-F8DA-4E47-8F4D-BA4BB692689D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{74A97676-FCF1-4E9E-9520-5E8CFB91D680}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{37EC7A3A-7F45-446C-8A66-626898520335}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Data"
+              DTS:DTSID="{612C2F81-0EA5-4368-B1E7-3F3AF7A906FF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FuncionarioID"
+              DTS:DTSID="{EA41A70B-3321-4511-9CD1-1304DD60E8A2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IDDepartamento"
+              DTS:DTSID="{85F07E35-8D18-4787-B102-D397B12EFB2F}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Despartamentos Não Encontrados]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7506EB1A-C01F-46B8-A765-E27BA3BA98A8}"
+      DTS:ObjectName="Despartamentos Não Encontrados">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\DepartamentoNaoEncontrados.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{5F79C2F2-D9D7-4975-92EA-9E340F607CA3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Data"
+              DTS:DTSID="{53175F93-7A87-48C0-9571-1C1DED7BF33D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartamentoID"
+              DTS:DTSID="{DEA4D2CE-8DB6-496F-9D5E-282443B32DCA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{B43BF423-F9A2-4B3F-BA88-8CC47067D766}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{2957342D-4C7B-4070-A65E-491DB2958E3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{509EE791-31C5-4CEA-B08C-34DAAECF1020}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Despartamentos Não Encontrados 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{51DDE66D-7296-472A-B35C-263812A3D972}"
+      DTS:ObjectName="Despartamentos Não Encontrados 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\DepartamentoNaoEncontrados.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{C2F6378E-75F3-4B9A-87E0-A19B24B62421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Data"
+              DTS:DTSID="{D87ED138-C202-43E1-AD92-A2C2C5C8B602}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartamentoID"
+              DTS:DTSID="{8C9727AF-DC84-4C89-9E1E-D714BD294DEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{01C40FAF-0B2E-4366-BB66-85659C329B10}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{97991903-8382-4DA0-B9D3-58CD37D54E64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="12"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{328A4024-5D98-4399-AF99-4511F938D047}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Projets Não Encontrados]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8DF62EC2-BFA5-4C68-966E-7A755DE0FDB4}"
+      DTS:ObjectName="Projets Não Encontrados">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\ProjetosNãoEncontrados.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{387BA4EA-9CD2-423C-89F9-31B578023A49}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{045D7E15-D466-4350-A941-25CCF98BD28F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{6835AF00-7F2A-42AB-85CE-98AF8B6AA560}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProjetoID"
+              DTS:DTSID="{905101B0-92D4-4942-A8E8-0AB20A93AFE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{848C099F-A780-4DA0-8713-6B3DFDF55FBD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Projets Não Encontrados 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5FC777D8-9665-4090-9089-CD5BD1EAEE94}"
+      DTS:ObjectName="Projets Não Encontrados 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1046"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\OneDrive - Centro Paula Souza - Etec\Pos GPTI\BI\Atividade\ETL\ProjetosNãoEncontrados.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID"
+              DTS:DTSID="{13965382-B4A3-4363-84B5-9DEB4F86F6BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Descricao"
+              DTS:DTSID="{68DBAD54-ABF3-4E44-8AC5-E600CFF7A408}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="14"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Valor"
+              DTS:DTSID="{1566ED26-8A2E-4304-867E-1E1962FD3BEB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProjetoID"
+              DTS:DTSID="{67C81724-126D-42CE-A80F-B05AEDFCECA5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NomeOrigem"
+              DTS:DTSID="{28EC96D4-BEE6-4B09-A6C8-1063E1812E38}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F675BA95-B2BC-4D95-8B44-826167346B12}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DataAtual">
+      <DTS:VariableValue
+        DTS:DataType="7">8/3/2018 5:36:48 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C7BC5FFB-6100-42D3-9653-DFF1500B1182}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ProximaData">
+      <DTS:VariableValue
+        DTS:DataType="7">8/3/2018 5:39:12 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Importação das Despesas"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{647013DE-F343-4AFD-AF27-2A826B857C60}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Importação das Despesas"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Destino de Arquivo Simples;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Destino de Arquivo Simples"
+              localeId="1046"
+              name="Departamentos Não Encontrados Funcionarios">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica se os dados substituirão o arquivo de destino ou serão anexados a ele."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica o texto a ser gravado no arquivo de destino antes da gravação de quaisquer dados."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Dep Não Encontrados Funcionario]"
+                  connectionManagerRefId="Package.ConnectionManagers[Dep Não Encontrados Funcionario]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples]"
+                  hasSideEffects="true"
+                  name="Entrada de Destino de Arquivo Simples">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].Columns[Descricao]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Descricao"
+                      externalMetadataColumnId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Descricao]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Descricao]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].Columns[IDDep]"
+                      cachedDataType="i4"
+                      cachedName="IDDep"
+                      externalMetadataColumnId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[IDDep]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDDep]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].Columns[NomeOrigem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="NomeOrigem"
+                      externalMetadataColumnId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[NomeOrigem]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[NomeOrigem]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Descricao" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[IDDep]"
+                      dataType="i4"
+                      name="IDDep" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples].ExternalColumns[NomeOrigem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="NomeOrigem" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Importação das Despesas\Destino OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dados].[Despesa]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importação das Despesas\Destino OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Data]"
+                      cachedDataType="dbDate"
+                      cachedName="Data"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Data]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Data]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Descricao]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Descricao"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Descricao]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Descricao]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[Valor]"
+                      cachedDataType="numeric"
+                      cachedName="Valor"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Valor]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valor]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[NomeOrigem]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="11"
+                      cachedName="NomeOrigem"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NomeOrigem]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[NomeOrigem]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[DepartamentoKey]"
+                      cachedDataType="i4"
+                      cachedName="DepartamentoKey"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[DepartamentoKey]"
+                      lineageId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Correspondência de Pesquisa].Columns[DepartamentoKey]" />
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDOrigem]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[DespesaKey]"
+                      dataType="i4"
+                      name="DespesaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Data]"
+                      dataType="dbDate"
+                      name="Data" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDOrigem]"
+                      dataType="i4"
+                      name="IDOrigem" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[NomeOrigem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NomeOrigem" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Valor]"
+                      dataType="numeric"
+                      name="Valor"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Descricao" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[DepartamentoKey]"
+                      dataType="i4"
+                      name="DepartamentoKey" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB].ExternalColumns[ProjetoKey]"
+                      dataType="i4"
+                      name="ProjetoKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importação das Despesas\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Destino OLE DB.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importação das Despesas\Origem OLE DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem OLE DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+	df.ID, df.Data,
+	df.FuncionarioID, df.Descricao, f.DepartamentoID as IDDep,
+	df.Valor, 'Funcionario' as NomeOrigem
+from DespesaFuncionario df
+inner join Funcionario f on f.ID = df.FuncionarioID</property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importação das Despesas\Origem OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="{BF7E3DCF-7CD7-4EE2-973A-44D967BD9C53}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TI]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Data]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Data]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Data]"
+                      name="Data"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[FuncionarioID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[FuncionarioID]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[FuncionarioID]"
+                      name="FuncionarioID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Descricao]"
+                      length="255"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Descricao]"
+                      name="Descricao"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Valor]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[Valor]"
+                      name="Valor"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[NomeOrigem]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[NomeOrigem]"
+                      length="11"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[NomeOrigem]"
+                      name="NomeOrigem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDDep]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDDep]"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDDep]"
+                      name="IDDep"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Data]"
+                      dataType="dbDate"
+                      name="Data" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[FuncionarioID]"
+                      dataType="i4"
+                      name="FuncionarioID" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Descricao" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[Valor]"
+                      dataType="numeric"
+                      name="Valor"
+                      precision="14"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[NomeOrigem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      name="NomeOrigem" />
+                    <externalMetadataColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].ExternalColumns[IDDep]"
+                      dataType="i4"
+                      name="IDDep" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Data]"
+                      dataType="dbDate"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Data]"
+                      name="Data" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[FuncionarioID]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[FuncionarioID]"
+                      name="FuncionarioID" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Descricao]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Descricao]"
+                      name="Descricao" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDDep]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[IDDep]"
+                      name="IDDep" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Valor]"
+                      dataType="numeric"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[Valor]"
+                      name="Valor"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[NomeOrigem]"
+                      codePage="1252"
+                      dataType="str"
+                      length="11"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[NomeOrigem]"
+                      name="NomeOrigem" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Pesquisa;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;6"
+              description="Une colunas adicionais aos fluxos de dados pesquisando valores de uma tabela. Por exemplo, una à coluna 'employee id' a tabela de funcionários para obter 'hire date' e 'employee name'. Essa transformação é recomendada quando a tabela de pesquisa está de acordo com a memória."
+              name="Pesquisa Despesa Funcionário DP"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica a instrução SQL que gera a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct
+ d.idOrigem from dados.Despesa d 
+
+where d.NomeOrigem = 'Funcionario'</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica uma instrução SQL que usa parâmetros para gerar a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select distinct
+ d.idOrigem from dados.Despesa d 
+
+where d.NomeOrigem = 'Funcionario') [refTable]
+where [refTable].[idOrigem] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de conexão usado para acessar o conjunto de dados de referência."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de cache da tabela de pesquisa."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica como a transformação Pesquisa trata as linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a porcentagem do cache alocada para linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica se os metadados de referência em um formato XML devem ser referenciados."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="idOrigem" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica a lista de identificadores de linhagem mapeados para os parâmetros usados pela instrução SQL na propriedade SQLCommand. As entradas na lista são separadas por ponto e vírgulas."
+                  name="ParameterMap">#{Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina se as chaves duplicadas nos dados de referência devem ser tratadas como erros quando o modo de cache cheio é usado."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="O gerenciador de conexões usado para acessar dados de pesquisa."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa]"
+                  name="Entrada de Pesquisa">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência que uma coluna une."
+                          name="JoinToReferenceColumn">idOrigem</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Correspondência de Pesquisa]"
+                  errorOrTruncationOperation="Pesquisa"
+                  exclusionGroup="1"
+                  name="Saída de Correspondência de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída Sem Correspondência de Pesquisa]"
+                  description="A saída de Pesquisa que trata as linhas sem entradas correspondentes no conjunto de dados de referência. Use essa saída quando a propriedade NoMatchBehavior estiver definida como &quot;Enviar as linhas sem entradas correspondentes para a saída sem correspondência&quot;."
+                  exclusionGroup="1"
+                  name="Saída Sem Correspondência de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Erro de Pesquisa]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Importação das Despesas\Retorna ID DW Departamento"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Pesquisa;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;6"
+              description="Une colunas adicionais aos fluxos de dados pesquisando valores de uma tabela. Por exemplo, una à coluna 'employee id' a tabela de funcionários para obter 'hire date' e 'employee name'. Essa transformação é recomendada quando a tabela de pesquisa está de acordo com a memória."
+              name="Retorna ID DW Departamento"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica a instrução SQL que gera a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+	d.DepartamentoKey, d.IDOrigem 
+from dados.Departamento as d;</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica uma instrução SQL que usa parâmetros para gerar a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select
+	d.DepartamentoKey, d.IDOrigem 
+from dados.Departamento as d;) [refTable]
+where [refTable].[IDOrigem] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de conexão usado para acessar o conjunto de dados de referência."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de cache da tabela de pesquisa."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica como a transformação Pesquisa trata as linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a porcentagem do cache alocada para linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica se os metadados de referência em um formato XML devem ser referenciados."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DepartamentoKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IDOrigem" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica a lista de identificadores de linhagem mapeados para os parâmetros usados pela instrução SQL na propriedade SQLCommand. As entradas na lista são separadas por ponto e vírgulas."
+                  name="ParameterMap">#{Package\Importação das Despesas\153:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina se as chaves duplicadas nos dados de referência devem ser tratadas como erros quando o modo de cache cheio é usado."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Importação das Despesas\Retorna ID DW Departamento.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="O gerenciador de conexões usado para acessar dados de pesquisa."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa]"
+                  name="Entrada de Pesquisa">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa].Columns[IDDep]"
+                      cachedDataType="i4"
+                      cachedName="IDDep"
+                      lineageId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB].Columns[IDDep]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência que uma coluna une."
+                          name="JoinToReferenceColumn">IDOrigem</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Correspondência de Pesquisa]"
+                  errorOrTruncationOperation="Pesquisa"
+                  exclusionGroup="1"
+                  name="Saída de Correspondência de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Correspondência de Pesquisa].Columns[DepartamentoKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Correspondência de Pesquisa].Columns[DepartamentoKey]"
+                      name="DepartamentoKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">DepartamentoKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída Sem Correspondência de Pesquisa]"
+                  description="A saída de Pesquisa que trata as linhas sem entradas correspondentes no conjunto de dados de referência. Use essa saída quando a propriedade NoMatchBehavior estiver definida como &quot;Enviar as linhas sem entradas correspondentes para a saída sem correspondência&quot;."
+                  exclusionGroup="1"
+                  name="Saída Sem Correspondência de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Erro de Pesquisa]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Pesquisa"
+                  synchronousInputId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Importação das Despesas.Paths[Saída de Correspondência de Pesquisa]"
+              endId="Package\Importação das Despesas\Destino OLE DB.Inputs[Entrada de Destino OLE DB]"
+              name="Saída de Correspondência de Pesquisa"
+              startId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída de Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Importação das Despesas.Paths[Saída de Origem OLE DB]"
+              endId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Inputs[Entrada de Pesquisa]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Importação das Despesas\Origem OLE DB.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Importação das Despesas.Paths[Saída Sem Correspondência de Pesquisa]"
+              endId="Package\Importação das Despesas\Retorna ID DW Departamento.Inputs[Entrada de Pesquisa]"
+              name="Saída Sem Correspondência de Pesquisa"
+              startId="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP.Outputs[Saída Sem Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Importação das Despesas.Paths[Saída Sem Correspondência de Pesquisa1]"
+              endId="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios.Inputs[Entrada de Destino de Arquivo Simples]"
+              name="Saída Sem Correspondência de Pesquisa"
+              startId="Package\Importação das Despesas\Retorna ID DW Departamento.Outputs[Saída Sem Correspondência de Pesquisa]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Importação das Despesas"
+          TopLeft="103,114" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Importação das Despesas">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Importação das Despesas\Destino OLE DB"
+          TopLeft="193,383" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP"
+          TopLeft="146,153" />
+        <NodeLayout
+          Size="152,42"
+          Id="Package\Importação das Despesas\Origem OLE DB"
+          TopLeft="189,48" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\Importação das Despesas\Departamentos Não Encontrados Funcionarios"
+          TopLeft="585,271" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\Importação das Despesas\Retorna ID DW Departamento"
+          TopLeft="155,272" />
+        <EdgeLayout
+          Id="Package\Importação das Despesas.Paths[Saída Sem Correspondência de Pesquisa1]"
+          TopLeft="376,292.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="209,0"
+              Start="0,0"
+              End="201.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="201.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.1559765625,5,179.188046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importação das Despesas.Paths[Saída Sem Correspondência de Pesquisa]"
+          TopLeft="265,195">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-89.5940234375,28.65234375,179.188046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importação das Despesas.Paths[Saída de Origem OLE DB]"
+          TopLeft="264.75,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Importação das Despesas.Paths[Saída de Correspondência de Pesquisa]"
+          TopLeft="267.5,314">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-85.3740234375,24.65234375,170.748046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importação das Despesas\Destino OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importação das Despesas\Retorna ID DW Departamento">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importação das Despesas\Pesquisa Despesa Funcionário DP">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Importação das Despesas\Origem OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

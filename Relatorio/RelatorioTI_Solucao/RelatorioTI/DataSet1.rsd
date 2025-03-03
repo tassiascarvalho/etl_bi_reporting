@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Description />
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>TIDW</DataSourceReference>
+      <CommandText>select 
+ d.DespesaKey, d.Data, d.Descricao, d.Valor, dp.Sigla, p.Identificador, dp.Nome as Departamentos,
+ p.Nome as Projetos
+from dados.Despesa d
+full outer join dados.Departamento dp on dp.DepartamentoKey = d.DepartamentoKey
+full outer join dados.Projeto p on p.ProjetoKey = d.ProjetoKey</CommandText>
+      <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+    </Query>
+    <Fields>
+      <Field Name="DespesaKey">
+        <DataField>DespesaKey</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Data">
+        <DataField>Data</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Descricao">
+        <DataField>Descricao</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Valor">
+        <DataField>Valor</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Sigla">
+        <DataField>Sigla</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Identificador">
+        <DataField>Identificador</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Departamentos">
+        <DataField>Departamentos</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Projetos">
+        <DataField>Projetos</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

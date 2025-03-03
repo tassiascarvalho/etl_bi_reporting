@@ -1,0 +1,1315 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/3/2018 12:03:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SCARVALHO"
+  DTS:CreatorName="SCARVALHO\Tassia"
+  DTS:DTSID="{6C9A41A3-00CB-45D6-840D-4FEE8DCF9FB4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.3002.106"
+  DTS:LocaleID="1046"
+  DTS:ObjectName="Projeto"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{2C12A7B6-E829-416E-BB57-48923C437035}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Atualizar Projeto"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{DD7DB454-CDD5-4197-8453-41C9428B7B68}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Atualizar Projeto"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{607D2554-893B-4F39-AE60-FEE07A909FE4}"
+          SQLTask:SqlStatementSource="update dados.Projeto set&#xA;&#x9;Nome = p.Nome,&#xA;&#x9;Identificador = p.Identificador,&#xA;&#x9;DataInicio = p.DataInicio,&#xA;&#x9;DataTermino = p.DataTermino,&#xA;&#x9;Orcamento = p.Orcamento&#xA;from dados.Projeto p&#xA;inner join temp.StageProjeto stp on stp.ID = p.IDOrigem;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Projeto"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarefa Fluxo de Dados"
+      DTS:DTSID="{3916492B-38EC-418B-914F-DD1CF08D2DFC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Projeto"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Projeto\Destino"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[dados].[Projeto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Projeto\Destino.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDOrigem]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[Identificador]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Identificador"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Identificador]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Identificador]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[DataInicio]"
+                      cachedDataType="dbDate"
+                      cachedName="DataInicio"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicio]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataInicio]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[DataTermino]"
+                      cachedDataType="dbDate"
+                      cachedName="DataTermino"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataTermino]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataTermino]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].Columns[Orcamento]"
+                      cachedDataType="numeric"
+                      cachedName="Orcamento"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Orcamento]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Orcamento]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[IDOrigem]"
+                      dataType="i4"
+                      name="IDOrigem" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[ProjetoKey]"
+                      dataType="i4"
+                      name="ProjetoKey" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Identificador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicio]"
+                      dataType="dbDate"
+                      name="DataInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataTermino]"
+                      dataType="dbDate"
+                      name="DataTermino" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB].ExternalColumns[Orcamento]"
+                      dataType="numeric"
+                      name="Orcamento"
+                      precision="14"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Destino.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Destino.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Destino.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Projeto\Destino.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Destino.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Projeto\Destino Departamento Staging"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino OLE DB"
+              name="Destino Departamento Staging"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset">[temp].[StageProjeto]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se os valores fornecidos para colunas de identidade serão copiados no destino. Se false, os valores para colunas de identidade serão gerados automaticamente no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica se as colunas que contêm null terão null inserido no destino. Se false, as colunas que contêm null terão seus valores padrão inseridos no destino. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica as opções a serem usadas com o carregamento rápido. Aplicável apenas se o carregamento rápido estiver ativado."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica quando confirmações são emitidas durante a inserção de dados. Um valor de 0 especifica que uma confirmação será emitida ao final da inserção de dados. Aplicável somente se o carregamento rápido estiver ativado."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Projeto\Destino Departamento Staging.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB]"
+                  errorOrTruncationOperation="Inserir"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de Destino OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nome"
+                      externalMetadataColumnId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[Identificador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataInicio]"
+                      dataType="dbDate"
+                      name="DataInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[DataTermino]"
+                      dataType="dbDate"
+                      name="DataTermino" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB].ExternalColumns[Orcamento]"
+                      dataType="numeric"
+                      name="Orcamento"
+                      precision="14"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Destino Departamento Staging.Outputs[Saída de Erro de Destino OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Destino OLE DB"
+                  synchronousInputId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Destino Departamento Staging.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Projeto\Destino Departamento Staging.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Destino Departamento Staging.Outputs[Saída de Erro de Destino OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Projeto\Divisão Condicional"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Divisão Condicional;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Encaminha colunas de dados para saídas diferentes, dependendo do conteúdo dos dados. Use condições (expressões do SSIS) para especificar quais linhas são encaminhadas. Por exemplo, separe os registros que precisam ser limpos daqueles que estão prontos para serem carregados ou encaminhe somente um subconjunto de registros."
+              name="Divisão Condicional"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  description="Entrada para a Transformação Divisão Condicional"
+                  name="Entrada de Divisão Condicional">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Nome]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Nome"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Identificador]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Identificador"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Identificador]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[DataInicio]"
+                      cachedDataType="dbDate"
+                      cachedName="DataInicio"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataInicio]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[DataTermino]"
+                      cachedDataType="dbDate"
+                      cachedName="DataTermino"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataTermino]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[Orcamento]"
+                      cachedDataType="numeric"
+                      cachedName="Orcamento"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Orcamento]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[NomeLkp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="NomeLkp"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[NomeLkp]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[IdentificadorLkp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="IdentificadorLkp"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[IdentificadorLkp]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[DataInicioLkp]"
+                      cachedDataType="dbDate"
+                      cachedName="DataInicioLkp"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataInicioLkp]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[DataTerminoLkp]"
+                      cachedDataType="dbDate"
+                      cachedName="DataTerminoLkp"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataTerminoLkp]" />
+                    <inputColumn
+                      refId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional].Columns[OrcamentoLkp]"
+                      cachedDataType="numeric"
+                      cachedName="OrcamentoLkp"
+                      cachedPrecision="14"
+                      cachedScale="2"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[OrcamentoLkp]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Divisão Condicional.Outputs[Caixa 1]"
+                  description="Saída 1 da Transformação Divisão Condicional"
+                  errorOrTruncationOperation="Computação"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Caixa 1"
+                  synchronousInputId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a expressão. Essa versão da expressão usa identificadores de linhagem, em vez de nomes de colunas."
+                      name="Expression">#{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]} != [REPLACENULL](#{Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[NomeLkp]},"*") || #{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Identificador]} != [REPLACENULL](#{Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[IdentificadorLkp]},"*") || #{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataInicio]} != [REPLACENULL](#{Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataInicioLkp]},"*") || #{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataTermino]} != [REPLACENULL](#{Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataTerminoLkp]},"*") || #{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Orcamento]} != [REPLACENULL](#{Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[OrcamentoLkp]},"*")</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Especifica a versão amigável da expressão. Essa versão de expressão usa nomes de colunas."
+                      expressionType="Notify"
+                      name="FriendlyExpression">Nome != REPLACENULL(NomeLkp,"*") || Identificador != REPLACENULL(IdentificadorLkp,"*") || DataInicio != REPLACENULL(DataInicioLkp,"*") || DataTermino != REPLACENULL(DataTerminoLkp,"*") || Orcamento != REPLACENULL(OrcamentoLkp,"*")</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica a posição da condição na lista de condições que a transformação avalia. A ordem de avaliação é do menor para o maior valor."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Projeto\Divisão Condicional.Outputs[Saída Padrão de Divisão Condicional]"
+                  description="Saída Padrão da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  name="Saída Padrão de Divisão Condicional"
+                  synchronousInputId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Projeto\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional]"
+                  description="Saída de Erro da Transformação Divisão Condicional"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Divisão Condicional"
+                  synchronousInputId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Projeto\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Divisão Condicional.Outputs[Saída de Erro de Divisão Condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Projeto\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;0"
+              description="Distribui cada linha de entrada em cada linha em uma ou mais saídas. Por exemplo, ramifique seu fluxo de dados para criar uma cópia de dados de forma que alguns valores possam ser mascarados antes do compartilhamento com parceiros externos."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\Projeto\Multicast.Inputs[Multicast Entrada 1]"
+                  name="Multicast Entrada 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Multicast.Outputs[Multicast Saída 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Saída 1"
+                  synchronousInputId="Package\Projeto\Multicast.Inputs[Multicast Entrada 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Projeto\Origem"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origem OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;7"
+              description="Origem OLE DB"
+              name="Origem"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="O tempo em segundos antes que um comando expire. Zero indica uma expiração infinita."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica a variável que contém o nome do objeto de banco de dados usado para abrir um conjunto de linhas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="O comando SQL a ser executado."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+	p.ID, p.Nome,
+	p.Identificador, p.DataInicio,
+	p.DataTermino, p.Orcamento
+from Projeto p</property>
+                <property
+                  dataType="System.String"
+                  description="A variável que contém o comando SQL a ser executado."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forca o uso do valor da propriedade DefaultCodePage durante a descrição dos dados de caractere."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o modo usado para acessar o banco de dados."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Os mapeamentos entre os parâmetros no comando SQL e as variáveis."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Projeto\Origem.Connections[OleDbConnection]"
+                  connectionManagerID="{BF7E3DCF-7CD7-4EE2-973A-44D967BD9C53}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TI]"
+                  description="A conexão de tempo de execução OLE DB usada para acessar o banco de dados."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB]"
+                  name="Saída de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Nome]"
+                      length="255"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Nome]"
+                      name="Nome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Identificador]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Identificador]"
+                      length="50"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Identificador]"
+                      name="Identificador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataInicio]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[DataInicio]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataInicio]"
+                      name="DataInicio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataTermino]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[DataTermino]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[DataTermino]"
+                      name="DataTermino"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Orcamento]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversão"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Orcamento]"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[Orcamento]"
+                      name="Orcamento"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Nome" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Identificador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Identificador" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[DataInicio]"
+                      dataType="dbDate"
+                      name="DataInicio" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[DataTermino]"
+                      dataType="dbDate"
+                      name="DataTermino" />
+                    <externalMetadataColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].ExternalColumns[Orcamento]"
+                      dataType="numeric"
+                      name="Orcamento"
+                      precision="14"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB]"
+                  isErrorOut="true"
+                  name="Saída de Erro de Origem OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Nome]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Nome]"
+                      name="Nome" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Identificador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Identificador]"
+                      name="Identificador" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[DataInicio]"
+                      dataType="dbDate"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[DataInicio]"
+                      name="DataInicio" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[DataTermino]"
+                      dataType="dbDate"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[DataTermino]"
+                      name="DataTermino" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Orcamento]"
+                      dataType="numeric"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[Orcamento]"
+                      name="Orcamento"
+                      precision="14"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Erro de Origem OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Projeto\Pesquisa 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Pesquisa;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation;  Todos os Direitos Reservados; http://www.microsoft.com/sql/support;6"
+              description="Une colunas adicionais aos fluxos de dados pesquisando valores de uma tabela. Por exemplo, una à coluna 'employee id' a tabela de funcionários para obter 'hire date' e 'employee name'. Essa transformação é recomendada quando a tabela de pesquisa está de acordo com a memória."
+              name="Pesquisa 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica a instrução SQL que gera a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        IDOrigem, Nome AS NomeLkp, Identificador AS IdentificadorLkp, DataInicio AS DataInicioLkp, DataTermino AS DataTerminoLkp, Orcamento AS OrcamentoLkp
+FROM            dados.Projeto AS p</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica uma instrução SQL que usa parâmetros para gerar a tabela de pesquisa."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT        IDOrigem, Nome AS NomeLkp, Identificador AS IdentificadorLkp, DataInicio AS DataInicioLkp, DataTermino AS DataTerminoLkp, Orcamento AS OrcamentoLkp
+FROM            dados.Projeto AS p) [refTable]
+where [refTable].[IDOrigem] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de conexão usado para acessar o conjunto de dados de referência."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica o tipo de cache da tabela de pesquisa."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica como a transformação Pesquisa trata as linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a porcentagem do cache alocada para linhas sem entradas correspondentes no conjunto de dados de referência."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso Máximo de Memória para o Cache de Referência em uma plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica se os metadados de referência em um formato XML devem ser referenciados."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="IDOrigem" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NomeLkp" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="IdentificadorLkp" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DataInicioLkp" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DataTerminoLkp" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrcamentoLkp" dataType="DT_NUMERIC" length="0" precision="14" scale="2" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica a lista de identificadores de linhagem mapeados para os parâmetros usados pela instrução SQL na propriedade SQLCommand. As entradas na lista são separadas por ponto e vírgulas."
+                  name="ParameterMap">#{Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica a página de código de coluna a ser usada quando não há informações de página de código disponíveis a partir da fonte de dados."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina se as chaves duplicadas nos dados de referência devem ser tratadas como erros quando o modo de cache cheio é usado."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Projeto\Pesquisa 1.Connections[OleDbConnection]"
+                  connectionManagerID="{607D2554-893B-4F39-AE60-FEE07A909FE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[LocalHost.TIDW]"
+                  description="O gerenciador de conexões usado para acessar dados de pesquisa."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa]"
+                  name="Entrada de Pesquisa">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência que uma coluna une."
+                          name="JoinToReferenceColumn">IDOrigem</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa]"
+                  errorOrTruncationOperation="Pesquisa"
+                  exclusionGroup="1"
+                  name="Saída de Correspondência de Pesquisa"
+                  synchronousInputId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[NomeLkp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      length="255"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[NomeLkp]"
+                      name="NomeLkp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">NomeLkp</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[IdentificadorLkp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      length="50"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[IdentificadorLkp]"
+                      name="IdentificadorLkp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">IdentificadorLkp</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataInicioLkp]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataInicioLkp]"
+                      name="DataInicioLkp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">DataInicioLkp</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataTerminoLkp]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[DataTerminoLkp]"
+                      name="DataTerminoLkp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">DataTerminoLkp</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[OrcamentoLkp]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Copiar Coluna"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa].Columns[OrcamentoLkp]"
+                      name="OrcamentoLkp"
+                      precision="14"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica a coluna na tabela de referência a partir da qual uma coluna é copiada."
+                          name="CopyFromReferenceColumn">OrcamentoLkp</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Projeto\Pesquisa 1.Outputs[Saída Sem Correspondência de Pesquisa]"
+                  description="A saída de Pesquisa que trata as linhas sem entradas correspondentes no conjunto de dados de referência. Use essa saída quando a propriedade NoMatchBehavior estiver definida como &quot;Enviar as linhas sem entradas correspondentes para a saída sem correspondência&quot;."
+                  exclusionGroup="1"
+                  name="Saída Sem Correspondência de Pesquisa"
+                  synchronousInputId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Erro de Pesquisa]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Saída de Erro de Pesquisa"
+                  synchronousInputId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Erro de Pesquisa].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Projeto\Pesquisa 1.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Projeto\Pesquisa 1.Outputs[Saída de Erro de Pesquisa].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Projeto.Paths[Caixa 1]"
+              endId="Package\Projeto\Destino Departamento Staging.Inputs[Entrada de Destino OLE DB]"
+              name="Caixa 1"
+              startId="Package\Projeto\Divisão Condicional.Outputs[Caixa 1]" />
+            <path
+              refId="Package\Projeto.Paths[Saída de Correspondência de Pesquisa]"
+              endId="Package\Projeto\Divisão Condicional.Inputs[Entrada de Divisão Condicional]"
+              name="Saída de Correspondência de Pesquisa"
+              startId="Package\Projeto\Pesquisa 1.Outputs[Saída de Correspondência de Pesquisa]" />
+            <path
+              refId="Package\Projeto.Paths[Saída de Origem OLE DB]"
+              endId="Package\Projeto\Pesquisa 1.Inputs[Entrada de Pesquisa]"
+              name="Saída de Origem OLE DB"
+              startId="Package\Projeto\Origem.Outputs[Saída de Origem OLE DB]" />
+            <path
+              refId="Package\Projeto.Paths[Saída Sem Correspondência de Pesquisa]"
+              endId="Package\Projeto\Destino.Inputs[Entrada de Destino OLE DB]"
+              name="Saída Sem Correspondência de Pesquisa"
+              startId="Package\Projeto\Pesquisa 1.Outputs[Saída Sem Correspondência de Pesquisa]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Trucar Staging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarefa Executar SQL"
+      DTS:DTSID="{8D28B7BD-4339-466B-BC0C-E23D1CD18222}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Trucar Staging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{607D2554-893B-4F39-AE60-FEE07A909FE4}"
+          SQLTask:SqlStatementSource="truncate table temp.StageProjeto;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição]"
+      DTS:CreationName=""
+      DTS:DTSID="{5D315F0E-67A4-437A-892A-E9DB54042600}"
+      DTS:From="Package\Trucar Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição"
+      DTS:To="Package\Projeto" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restrição 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1A118F27-BDEF-4B45-8C23-4B202221264E}"
+      DTS:From="Package\Projeto"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restrição 1"
+      DTS:To="Package\Atualizar Projeto" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta seção CDATA contém as informações de layout do pacote. A seção inclui informações como coordenadas (x,y), largura e altura.-->
+<!--Se você editar manualmente esta seção e cometer algum erro, poderá excluí-la. -->
+<!--O pacote ainda poderá ser carregado normalmente, mas as informações de layout anteriores serão perdidas e o designer reorganizará automaticamente os elementos na superfície de design.-->
+<Objects
+  Version="8">
+  <!--Cada nó abaixo conterá propriedades que não afetam o comportamento em tempo de execução.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Atualizar Projeto"
+          TopLeft="34,298" />
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Projeto"
+          TopLeft="54,191" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Trucar Staging"
+          TopLeft="45,80" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição]"
+          TopLeft="133,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23,69"
+              Start="0,0"
+              End="-23,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="-4,34.5" />
+                  <mssgle:LineSegment
+                    End="-19,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19,34.5"
+                    Point2="-23,34.5"
+                    Point3="-23,38.5" />
+                  <mssgle:LineSegment
+                    End="-23,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restrição 1]"
+          TopLeft="111,233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Projeto">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="224,44"
+          Id="Package\Projeto\Destino Departamento Staging"
+          TopLeft="808,167" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Projeto\Origem"
+          TopLeft="90,57" />
+        <NodeLayout
+          Size="129,42"
+          Id="Package\Projeto\Pesquisa 1"
+          TopLeft="84,172" />
+        <NodeLayout
+          Size="120,42"
+          Id="Package\Projeto\Multicast"
+          TopLeft="7.88703339882122,5.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Projeto\Divisão Condicional"
+          TopLeft="415,170" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Projeto\Destino"
+          TopLeft="96,325" />
+        <EdgeLayout
+          Id="Package\Projeto.Paths[Saída Sem Correspondência de Pesquisa]"
+          TopLeft="150.75,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,111"
+              Start="0,0"
+              End="0,103.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,103.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-89.5940234375,45.65234375,179.188046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Projeto.Paths[Saída de Origem OLE DB]"
+          TopLeft="147.5,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Projeto.Paths[Saída de Correspondência de Pesquisa]"
+          TopLeft="213,192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="202,0"
+              Start="0,0"
+              End="194.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="194.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="11.8759765625,5,170.748046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Projeto.Paths[Caixa 1]"
+          TopLeft="585,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="223,0"
+              Start="0,0"
+              End="215.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="215.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="91.1469140625,5,33.206171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Projeto\Destino Departamento Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Projeto\Origem">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Projeto\Pesquisa 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Projeto\Destino">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

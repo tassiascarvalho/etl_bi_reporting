@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "ProjetoETLTIDW", "ProjetoETLTIDW\ProjetoETLTIDW.dtproj", "{4163B047-BC5D-4140-B570-0AC1B0105B96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4163B047-BC5D-4140-B570-0AC1B0105B96}.Development|Default.ActiveCfg = Development
+		{4163B047-BC5D-4140-B570-0AC1B0105B96}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31B7A473-26C8-4894-98ED-07C4917CBDB5}
+	EndGlobalSection
+EndGlobal
